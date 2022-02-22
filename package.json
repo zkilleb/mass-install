@@ -2,6 +2,7 @@
   "name": "mass-install",
   "version": "1.0.0",
   "description": "Recursively search for an install multiple package.json files in a monorepo",
+  "repository": "https://github.com/zkilleb/mass-install",
   "main": "index.js",
   "bin": "index.js",
   "scripts": {
