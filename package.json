@@ -1,0 +1,12 @@
+{
+  "name": "mass-install",
+  "version": "1.0.0",
+  "description": "Recursively search for an install multiple package.json files in a monorepo",
+  "main": "index.js",
+  "bin": "index.js",
+  "scripts": {
+    "mass-install": "node index.js"
+  },
+  "author": "Zach Killebrew",
+  "license": "ISC"
+}
