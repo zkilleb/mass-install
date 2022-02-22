@@ -10,7 +10,7 @@ For use in monorepos or projects with multiple package.json files. `mass-install
 
 Run the command `mass-install` to begin dependency installation.
 
-If a `.gitignore` file is detected in the root of the project, the `mass-install` script will ask the user if they want to add the newly generated `node_modules` directories to it. These changes will be appended to the bottom of the `.gitignore` file.
+If a `.gitignore` file is detected in the root of the project, the `mass-install` script will ask the user if they want to add the newly generated `node_modules` directories to it. These changes will be appended to the bottom of the `.gitignore` file. `mass-install` will scan the existing `.gitignore` to avoid adding duplicates to the file.
 
 Example Formatting:
 

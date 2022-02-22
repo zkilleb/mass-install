@@ -47,7 +47,8 @@ function updateGitignore() {
     let writeString = '\n# Automatically added by mass-install\n';;
     try {
         packagePaths.forEach((path) => {
-            writeString += `/${path}/node_modules\n`
+            if(path === './') writeString += `/node_modules\n`;
+            else writeString += `/${path}/node_modules\n`;
         });
         fs.appendFileSync(`${currentDir}/.gitignore`, writeString);
     } catch (e) {
@@ -58,7 +59,13 @@ function updateGitignore() {
 function main() {
     readDirectory(currentDir);
     if(fs.existsSync('.gitignore') && !process.argv.includes('--no-update')) {
-        askPrompt();
+        fs.readFile(`${currentDir}/.gitignore`, (e, data) => {
+            if (e) console.log(e);
+            packagePaths.forEach((path, index) => {
+                if(data.includes(path)) packagePaths.splice(index, 1);
+            });
+            if(packagePaths.length > 0) askPrompt();
+        });
     }
 }
 
